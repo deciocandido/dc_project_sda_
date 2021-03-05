@@ -1,4 +1,5 @@
 //import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class mainClass {
@@ -17,6 +18,42 @@ public class mainClass {
 
         //Display the selected option
         System.out.println("The option selected is: " + user_option);
+
+        switch (user_option){
+            case 1:
+            System.out.println("Enter your task title");
+            String taskTitle = scan.next();
+
+            System.out.println("Enter the due date");
+            String dueDate = scan.next();
+
+            System.out.println("Enter the status of the task");
+            String taskStatus = scan.next();
+
+            System.out.println("Enter the project of the task");
+            String taskProject = scan.next();
+            break;
+
+            case 2:
+            System.out.println("Enter your task title");
+            String searchTask = scan.next();
+            break;
+
+            case 3:
+            System.out.println("Enter your task title");
+            String editTask = scan.next();
+            break;
+
+            case 4:
+            System.out.println("Enter the task title to be deleted");
+            String deleteTask = scan.next();
+            break;
+
+            default:
+            System.out.println("You have enter a wrong option");
+
+
+        }
 
         //declaring and initialized an Arraylist taskClass
         //
