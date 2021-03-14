@@ -1,6 +1,5 @@
 package dc_iproject_sda;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -17,8 +16,10 @@ public class menuClassTest {
     @Test
     void testAddingTaskCorrectedIntoArrayList(){
         //menuOptions.printMenu();
+        String taskTitle = "1";
+        String expectedResult = "1";
 
-        //assertEquals(taskTitle, expectedResult);
+        assertEquals(taskTitle, expectedResult);
         
     }
 }
