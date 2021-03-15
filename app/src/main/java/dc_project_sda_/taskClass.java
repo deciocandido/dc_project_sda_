@@ -1,4 +1,4 @@
-package dc_iproject_sda;
+package dc_project_sda_;
 
 import java.util.Date;
 
@@ -46,9 +46,16 @@ public class taskClass implements taskInterface {
         this.taskTitle = taskNewTitle;
         return this.taskTitle;
     }
-    public Boolean markTaskDone(String taskTitle){
+    public void markTaskDone(String taskTitle){
         this.taskStatus = true;
-        return this.taskStatus;
+        //return this.taskStatus;
+    }
+
+    public String getProject(){
+        return taskProject;
+    }
+    public Date getDueDate(){
+        return taskDate;
     }
 
 }
