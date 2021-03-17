@@ -70,7 +70,7 @@ abstract class menuClass {
 
     // Method to add Task into the ArrayList
     public ArrayList<taskClass> addTask(ArrayList<taskClass> taskList, String taskTitle, String taskProject, Boolean taskStatus){
-        taskClass newTask = new taskClass(taskTitle, taskTitle, taskStatus);
+        taskClass newTask = new taskClass(taskTitle, taskProject, taskStatus);
         taskList.add(newTask); 
         updateListStatus(taskList); 
         return taskList;
