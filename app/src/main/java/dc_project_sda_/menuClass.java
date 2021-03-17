@@ -165,7 +165,6 @@ abstract class menuClass {
                 return task1.getProject().compareTo(task2.getProject());
             }
         });
-        System.out.println("The new order by project is: ");
         for (taskClass taskClass : taskArrayList) {
             System.out.println("Task title: " + taskClass.taskTitle);
         }
