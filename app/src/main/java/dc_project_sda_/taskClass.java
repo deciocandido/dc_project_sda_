@@ -9,14 +9,11 @@ public class taskClass implements taskInterface {
     Boolean taskStatus;
     Date taskDate;
 
-    public taskClass(String taskTitle, String taskProject, Boolean taskStatus) {
+    public taskClass(String taskTitle, String taskProject, Boolean taskStatus, Date taskDate) {
         this.taskTitle = taskTitle;
         this.taskProject = taskProject;
         this.taskStatus = taskStatus;
-
-        // TODO
-        // Uncomment to add date
-        //this.taskDate = taskDate;
+        this.taskDate = taskDate;
     }
 
     @Override

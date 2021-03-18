@@ -1,8 +1,11 @@
 package dc_project_sda_;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.Scanner;
 
 abstract class menuClass {
@@ -31,7 +34,17 @@ abstract class menuClass {
             //Display the selected option
             switch (userMain){
                 case 1:
-                listTask(taskList);
+                System.out.println("Select: 1 - Order by date");
+                System.out.println("Select: 2 - Order by project");
+                int userOrderOption = scan.nextInt();
+                if(userOrderOption == 1){
+                    orderTaskDate(taskList);
+                } else if(userOrderOption == 2){
+                    orderTaskProject(taskList);
+                } else {
+                    System.out.println("Please select option: 1 or 2");
+                }
+                
                 break;
                 
                 case 2:
@@ -40,9 +53,17 @@ abstract class menuClass {
                 String taskTitle = scan.next();
                 System.out.println("Enter your task Project:");
                 String taskProject = scan.next();
-                //TODO
-                // insert due date
-                taskList = addTask(taskList, taskTitle, taskProject, taskStatus);
+                System.out.println("Enter task due date: dd-mm-yyyy");
+                String enterDate = scan.next();
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                Date taskDate = null;
+                try{
+                    taskDate = dateFormat.parse(enterDate);
+
+                } catch (Exception e){
+                    System.out.println("Please enter the correct format date!");
+                }
+                taskList = addTask(taskList, taskTitle, taskProject, taskStatus, taskDate);
                 updateListStatus(taskList);
                 break;
                 
@@ -69,8 +90,8 @@ abstract class menuClass {
     }
 
     // Method to add Task into the ArrayList
-    public ArrayList<taskClass> addTask(ArrayList<taskClass> taskList, String taskTitle, String taskProject, Boolean taskStatus){
-        taskClass newTask = new taskClass(taskTitle, taskProject, taskStatus);
+    public ArrayList<taskClass> addTask(ArrayList<taskClass> taskList, String taskTitle, String taskProject, Boolean taskStatus, Date taskDate){
+        taskClass newTask = new taskClass(taskTitle, taskProject, taskStatus, taskDate);
         taskList.add(newTask); 
         updateListStatus(taskList); 
         return taskList;
@@ -158,7 +179,7 @@ abstract class menuClass {
     }
 
     // Method to show the task list order by date or project
-    public void listTask(ArrayList<taskClass> taskArrayList){
+    public void orderTaskProject(ArrayList<taskClass> taskArrayList){
         Collections.sort(taskArrayList, new Comparator<taskClass>(){
             @Override
             public int compare(taskClass task1, taskClass task2){
@@ -166,7 +187,20 @@ abstract class menuClass {
             }
         });
         for (taskClass taskClass : taskArrayList) {
-            System.out.println("Task title: " + taskClass.taskTitle);
+            System.out.println("Task title: " + taskClass.taskTitle + ", project: " + taskClass.taskProject + ", due date: " + taskClass.taskDate);
+        }
+    }
+
+    // Method to show the task list order by date or project
+    public void orderTaskDate(ArrayList<taskClass> taskArrayList){
+        Collections.sort(taskArrayList, new Comparator<taskClass>(){
+            @Override
+            public int compare(taskClass task1, taskClass task2){
+                return task1.getDueDate().compareTo(task2.getDueDate());
+            }
+        });
+        for (taskClass taskClass : taskArrayList) {
+            System.out.println("Task title: " + taskClass.taskTitle + ", project: " + taskClass.taskProject + ", due date: " + taskClass.taskDate);
         }
     }
 
