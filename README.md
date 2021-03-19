@@ -32,7 +32,7 @@ The Use case diagram illustre the user interaction with the solution, for adding
 
 The Class diagram illustre the interaction between classes within the solution, very helpful for embed solution or even for debugging 
 
-![Class UML]<img src="app/img/classes.jpeg">
+![Class UML]<img src="app/img/classes.png">
 
 #### Step by step instructions
 
@@ -43,4 +43,6 @@ These are the instructions used to run and test the solution:
 3. locate the folder (#../dc_project_sda_/app/src/main/java/dc_project_sda_)
 4. upload the folder into workspace
 5. run App.java found on (#../dc_project_sda_/app/src/main/java/dc_project_sda_)
+
+![Printscreen]<img src="app/img/Screenshot.png">
 
