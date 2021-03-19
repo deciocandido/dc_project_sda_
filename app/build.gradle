@@ -29,7 +29,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'dc_iproject_sda.App'
+    mainClass = 'dc_project_sda_.App'
 }
 
 tasks.named('test') {
