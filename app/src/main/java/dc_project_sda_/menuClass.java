@@ -48,23 +48,7 @@ abstract class menuClass {
                 break;
                 
                 case 2:
-                Boolean taskStatus = false;
-                System.out.println("Enter your task title:");
-                String taskTitle = scan.next();
-                System.out.println("Enter your task Project:");
-                String taskProject = scan.next();
-                System.out.println("Enter task due date: dd-mm-yyyy");
-                String enterDate = scan.next();
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-                Date taskDate = null;
-                try{
-                    taskDate = dateFormat.parse(enterDate);
-
-                } catch (Exception e){
-                    System.out.println("Please enter the correct format date!");
-                }
-                taskList = addTask(taskList, taskTitle, taskProject, taskStatus, taskDate);
-                updateListStatus(taskList);
+                addTaskUserInput();
                 break;
                 
                 case 3:
@@ -89,6 +73,26 @@ abstract class menuClass {
         scan.close();
     }
 
+    // Method to add Task user input
+    public void addTaskUserInput(){
+        Boolean taskStatus = false;
+        System.out.println("Enter your task title:");
+        String taskTitle = scan.next();
+        System.out.println("Enter your task Project:");
+        String taskProject = scan.next();
+        System.out.println("Enter task due date: dd-mm-yyyy");
+        String enterDate = scan.next();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Date taskDate = null;
+        try{
+            taskDate = dateFormat.parse(enterDate);
+
+        } catch (Exception e){
+            System.out.println("Please enter the correct format date!");
+        }
+        taskList = addTask(taskList, taskTitle, taskProject, taskStatus, taskDate);
+        updateListStatus(taskList);
+    }
     // Method to add Task into the ArrayList
     public ArrayList<taskClass> addTask(ArrayList<taskClass> taskList, String taskTitle, String taskProject, Boolean taskStatus, Date taskDate){
         taskClass newTask = new taskClass(taskTitle, taskProject, taskStatus, taskDate);
